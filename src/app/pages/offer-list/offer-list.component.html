@@ -1,0 +1,24 @@
+<h2>Offer List</h2>
+<hr>
+<nz-table #sortTable [nzData]="offerList" nzTableLayout="fixed">
+  <thead>
+    <tr>
+      <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">
+        {{ column.title }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of sortTable.data">
+      <td>{{ data.countryName }}</td>
+      <td>{{ data.cityName }}</td>
+      <td>{{ data.currencyName }}</td>
+      <td>{{ data.incotermName }}</td>
+      <td>{{ data.modeName }}</td>
+      <td>{{ data.movementTypeName }}</td>
+      <td>{{ data.packageTypeName }}</td>
+      <td>{{ data.lengthUnit }}</td>
+      <td>{{ data.weightUnit }}</td>
+    </tr>
+  </tbody>
+</nz-table>

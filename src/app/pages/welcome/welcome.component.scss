@@ -1,0 +1,46 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.title{
+  font-size: 2rem;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f4f4f4;
+    border-radius: 8px;
+    padding: 0 20px;
+    padding-top: 11px;
+}
+.form-container {
+  max-width: 800px; /* Formun genişliğini sınırlayın */
+  margin: auto; /* Formu ortalamak için */
+  padding: 20px; /* İç padding */
+  background-color: #f4f4f4; /* Arka plan rengi */
+  border-radius: 8px; /* Kenarları yuvarlaklaştır */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+}
+
+.select-group {
+  margin-bottom: 20px; /* Her select grubu arasında boşluk */
+}
+
+.select-spacing {
+  width: 100%; /* Genişliği ayarlayın */
+  margin-bottom: 15px; /* Her select arasında boşluk */
+}
+
+.button-container {
+  text-align: center; /* Butonu ortalar */
+}
+
+.submit-button {
+  width: 50%; /* Buton genişliği */
+  padding: 10px 0; /* Daha rahat bir dokunuş için */
+}
+nz-alert {
+  margin-bottom: 16px;
+}

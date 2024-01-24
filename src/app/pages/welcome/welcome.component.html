@@ -1,0 +1,68 @@
+<nz-alert *ngIf="success" nzType="success" nzCloseable nzMessage="Succesfuly Saved"
+    (nzOnClose)="afterClose()"></nz-alert>
+
+<nz-alert *ngIf="error" nzType="error" nzCloseable nzMessage="Error Saved,Fill in All Fields."
+    (nzOnClose)="afterClose()"></nz-alert>
+
+
+<div class="container">
+    <div class="title">
+        <h3>Offer Modal</h3>
+    </div>
+    <form nz-form [formGroup]="myForm" (ngSubmit)="submitForm()" class="form-container">
+        <!-- Nz-Select Bileşenleri -->
+        <div class="select-group">
+            <nz-select nzShowSearch class="select-spacing" nzAllowClear nzPlaceHolder="Select a Mode"
+                formControlName="modeId">
+                <nz-option *ngFor="let o of modeList" nzLabel=" {{o.name}}" [nzValue]="o.id">
+                </nz-option>
+            </nz-select>
+
+            <nz-select nzShowSearch class="select-spacing" nzAllowClear nzPlaceHolder="Select a MovementType"
+                formControlName="movementTypeId">
+                <nz-option *ngFor="let o of movementTypeList" nzLabel=" {{o.name}}" [nzValue]="o.id">
+                </nz-option>
+            </nz-select>
+            <nz-select nzShowSearch class="select-spacing" nzAllowClear nzPlaceHolder="Select a Incoterm"
+                formControlName="incotermId">
+                <nz-option *ngFor="let o of incotermList" nzLabel=" {{o.name}}" [nzValue]="o.id">
+                </nz-option>
+            </nz-select>
+            <nz-select nzShowSearch class="select-spacing" nzAllowClear nzPlaceHolder="Select a Package Type"
+                formControlName="packageTypeId">
+                <nz-option *ngFor="let o of packageTypeList" nzLabel=" {{o.name}}" [nzValue]="o.id">
+                </nz-option>
+            </nz-select>
+
+            <input class="select-spacing" placeholder='Karakter Giriniz' nz-input formControlName="cityId"
+                [nzAutocomplete]="auto" />
+            <nz-autocomplete #auto (selectionChange)="onSelect($event.nzValue)">
+                <nz-auto-option *ngFor="let option of filteredOptions |async" [nzValue]="option">
+                    {{ option.countryName +' - '+ option.name}}
+                </nz-auto-option>
+            </nz-autocomplete>
+
+
+            <nz-select nzShowSearch class="select-spacing" nzAllowClear nzPlaceHolder="Select a Currency"
+                formControlName="currencyId">
+                <nz-option *ngFor="let o of currencyList" nzLabel=" {{o.name}}" [nzValue]="o.id">
+                </nz-option>
+            </nz-select>
+            <nz-select nzShowSearch class="select-spacing" nzAllowClear nzPlaceHolder="Select a Lengt Unit"
+                formControlName="lengthUnitId">
+                <nz-option *ngFor="let o of lengthUnitList" nzLabel=" {{o.label}}" [nzValue]="o.id">
+                </nz-option>
+            </nz-select>
+            <nz-select nzShowSearch class="select-spacing" nzAllowClear nzPlaceHolder="Select a Weight Unit"
+                formControlName="weightUnitId">
+                <nz-option *ngFor="let o of weigthUnitList" nzLabel=" {{o.label}}" [nzValue]="o.id">
+                </nz-option>
+            </nz-select>
+        </div>
+
+        <!-- Submit Butonu -->
+        <div class="button-container">
+            <button nz-button nzType="primary" class="submit-button">Submit</button>
+        </div>
+    </form>
+</div>
